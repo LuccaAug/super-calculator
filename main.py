@@ -1,7 +1,9 @@
 from base.base_area import BaseArea
+from medicine.medicine_calculator import MedicineCalculator
 
 
 options: dict = {
+    "M": "Medicine",
     "E": "Exit",
 }
 
@@ -18,6 +20,8 @@ def main() -> None:
         return
 
     calculator_area: BaseArea | None = None
+    if calculator_type == 'M':
+        calculator_area = MedicineCalculator()
 
     if calculator_area is not None:
         calculator_area.menu()
