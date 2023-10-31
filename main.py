@@ -2,33 +2,57 @@ from base.base_area import BaseArea
 from medicine.medicine_calculator import MedicineCalculator
 
 
-options: dict = {
-    "M": "Medicine",
-    "E": "Exit",
-}
-
-
-def main() -> None:
-    print("Choose the area: ")
-    for letter, name in options:
-        print("\t %s - %s" % (letter, name))
-
-    calculator_type = input()
-    calculator_type = calculator_type.upper()
-
-    if calculator_type == 'E':
-        return
-
+class MainMenu:
+    options: dict = {
+        "M": "Medicine",
+        "E": "Exit",
+    }
     calculator_area: BaseArea | None = None
-    if calculator_type == 'M':
-        calculator_area = MedicineCalculator()
+    in_loop: bool = True
 
-    if calculator_area is not None:
-        calculator_area.menu()
-        calculator_area.instantiate_calculator()
-    else:
-        print("Nothing was found, please try again!")
+    def __init__(self) -> None:
+        self.menu_in_loop()
+        self.end()
+
+    def reset_variables(self) -> None:
+        self.calculator_area = None
+
+    def show_menu(self) -> None:
+        print("Choose the area: ")
+        for letter, name in self.options:
+            print("\t %s - %s" % (letter, name))
+
+    def menu_in_loop(self) -> None:
+        while self.in_loop:
+            self.reset_variables()
+            self.show_menu()
+
+            calculator_type: str = input()
+            calculator_type = calculator_type.upper()
+
+            self.define_area(calculator_type)
+
+            if self.calculator_area is None:
+                print("Nothing was found, please try again!")
+                continue
+
+            self.instantiate_calculator_area()
+
+    def instantiate_calculator_area(self) -> None:
+        self.calculator_area.menu()
+        self.calculator_area.instantiate_calculator()
+
+    def define_area(self, calculator_type: str):
+        if calculator_type == 'E':
+            self.in_loop = False
+            return
+
+        if calculator_type == 'M':
+            self.calculator_area = MedicineCalculator()
+
+    def end(self):
+        print("Thanks for using the super-calculator! :D")
 
 
 if __name__ == "__main__":
-    main()
+    MainMenu()
