@@ -13,8 +13,8 @@ class BMITestCase(unittest.TestCase):
         self.bmi.height = 1.9
         self.bmi.weight = 78
 
-        bmi = 21.61
-        self.assertEqual(self.bmi.do_math(), bmi)
+        bmi = self.bmi.do_math()
+        self.assertEqual(bmi, 21.61)
 
 
 if __name__ == '__main__':

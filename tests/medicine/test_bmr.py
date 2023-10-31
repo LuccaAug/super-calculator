@@ -26,20 +26,22 @@ class BMRTestCase(unittest.TestCase):
         self.assertEqual(self.bmr.k_age, 4.330)
 
     def test_normal_values_for_man(self):
+        self.bmr.set_constants_for_man()
         self.bmr.age = 23
         self.bmr.height = 190
         self.bmr.weight = 78
 
-        bmr = 1858
-        self.assertEqual(self.bmr.do_math(), bmr)
+        bmr = self.bmr.do_math()
+        self.assertEqual(bmr, 1914.57)
 
     def test_normal_values_for_woman(self):
+        self.bmr.set_constants_for_woman()
         self.bmr.age = 23
         self.bmr.height = 160
         self.bmr.weight = 58
 
-        bmr = 1304
-        self.assertEqual(self.bmr.do_math(), bmr)
+        bmr = self.bmr.do_math()
+        self.assertEqual(bmr, 1380.01)
 
 
 if __name__ == '__main__':
