@@ -1,9 +1,11 @@
 from base.base_area import BaseArea
 from medicine.medicine_calculator import MedicineCalculator
+from computation.computation_calculator import ComputationCalculator
 
 
 class MainMenu:
     options: dict = {
+        "C": "Computation",
         "M": "Medicine",
         "E": "Exit",
     }
@@ -47,8 +49,11 @@ class MainMenu:
             self.in_loop = False
             return
 
-        if calculator_type == 'M':
+        elif calculator_type == 'M':
             self.calculator_area = MedicineCalculator()
+
+        elif calculator_type == 'C':
+            self.calculator_area = ComputationCalculator()
 
     def end(self):
         print("Thanks for using the super-calculator! :D")
