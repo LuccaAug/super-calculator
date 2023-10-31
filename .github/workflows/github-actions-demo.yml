@@ -1,0 +1,19 @@
+name: Super Calculator Actions
+run-name: Super Calculator Actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install python dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Run the tests
+        run: |
+          coverage run -m unittest discover
+      - name: Show the coverage report
+        run: |
+          coverage report -m
+      - name: Show the lizard report excluding tests
+        run: |
+          lizard -x"./tests/*"
