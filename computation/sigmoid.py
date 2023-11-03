@@ -13,4 +13,5 @@ class Sigmoid(BaseCalculator):
     def do_math(self) -> float:
         euler = pow(e, -self.input)
         sum = 1 + euler
-        return 1/sum
+        sigmoid = 1/sum
+        return round(sigmoid, 2)

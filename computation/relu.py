@@ -12,4 +12,4 @@ class ReLU(BaseCalculator):
         if self.input < 0:
             return 0
 
-        return self.input
+        return round(self.input, 2)

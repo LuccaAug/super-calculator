@@ -1,6 +1,6 @@
 from base.base_calculator import BaseCalculator
 
-from math import tanh
+import math
 
 
 class TanH(BaseCalculator):
@@ -11,4 +11,6 @@ class TanH(BaseCalculator):
         self.input = float(input_str)
 
     def do_math(self) -> float:
-        return tanh(self.input)
+        tanh = math.tanh(self.input)
+
+        return round(tanh, 2)
