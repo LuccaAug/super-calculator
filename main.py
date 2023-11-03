@@ -28,26 +28,21 @@ def main():
         if calculator_type == 'E':
             in_loop = False
 
-        else:
-            if calculator_type == 'M':
-                calculator_area = MedicineCalculator()
+        elif calculator_type == 'M':
+            calculator_area = MedicineCalculator()
 
-            else:
-                if calculator_type == 'C':
-                    calculator_area = ComputationCalculator()
+        elif calculator_type == 'C':
+            calculator_area = ComputationCalculator()
 
-                else:
-                    if calculator_type == 'P':
-                        calculator_area = PhysicCalculator()
+        elif calculator_type == 'P':
+            calculator_area = PhysicCalculator()
 
-                    else:
-                        if calculator_type == 'T':
-                            calculator_area = TrigonometricCalculator()
+        elif calculator_type == 'T':
+            calculator_area = TrigonometricCalculator()
 
-                        else:
-                            if calculator_area is None:
-                                print("Nothing was found, please try again!")
-                                continue
+        if calculator_area is None:
+            print("Nothing was found, please try again!")
+            continue
 
         calculator_area.menu()
         calculator_area.instantiate_calculator()
