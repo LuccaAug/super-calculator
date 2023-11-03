@@ -1,7 +1,8 @@
 from base.base_area import BaseArea
 from medicine.medicine_calculator import MedicineCalculator
 from computation.computation_calculator import ComputationCalculator
-from physic.physic_calculator import Physic
+from physic.physic_calculator import PhysicCalculator
+from trigonometric.trigonometric_calculator import TrigonometricCalculator
 
 
 class MainMenu:
@@ -9,6 +10,7 @@ class MainMenu:
         "C": "Computation",
         "M": "Medicine",
         "P": "Physic",
+        "T": "Trigonometric",
         "E": "Exit",
     }
     calculator_area: BaseArea | None = None
@@ -59,6 +61,9 @@ class MainMenu:
 
         elif calculator_type == 'P':
             self.calculator_area = PhysicCalculator()
+
+        elif calculator_type == 'T':
+            self.calculator_area = TrigonometricCalculator()
 
     def end(self):
         print("Thanks for using the super-calculator! :D")
