@@ -27,7 +27,6 @@ def main():
 
         if calculator_type == 'E':
             in_loop = False
-            return
 
         elif calculator_type == 'M':
             calculator_area = MedicineCalculator()
