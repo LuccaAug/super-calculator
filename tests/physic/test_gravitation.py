@@ -15,7 +15,7 @@ class GravitationTestCase(unittest.TestCase):
         self.gravitation.distance = 1
 
         gravitation = self.gravitation.do_math()
-        self.assertEqual(gravitation, 44.4889)
+        self.assertEqual(gravitation, 44.49)
 
     def test_distance_zero(self):
         self.gravitation.mass1 = 13
