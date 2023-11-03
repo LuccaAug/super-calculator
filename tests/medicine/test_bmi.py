@@ -9,7 +9,7 @@ class BMITestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.bmi = BMI()
 
-    def test_normal_values(self):
+    def test_normal_value(self):
         self.bmi.height = 1.9
         self.bmi.weight = 78
 

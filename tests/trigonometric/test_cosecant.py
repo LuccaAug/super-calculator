@@ -9,16 +9,22 @@ class CosecantTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.cosecant = Cosecant()
 
-    def test_normal_value(self):
+    def test_0_degree(self):
+        self.cosecant.angle_degrees = 0
+
+        self.assertRaises(ValueError, self.cosecant.do_math)
+
+    def test_45_degree(self):
+        self.cosecant.angle_degrees = 45
+
+        cosecant = self.cosecant.do_math()
+        self.assertEqual(cosecant, 1.41)
+
+    def test_90_degree(self):
         self.cosecant.angle_degrees = 90
 
         cosecant = self.cosecant.do_math()
         self.assertEqual(cosecant, 1)
-
-    def test_undefined_cosecant(self):
-        self.cosecant.angle_degrees = 180
-
-        self.assertRaises(ValueError, self.cosecant.do_math)
 
 
 if __name__ == '__main__':

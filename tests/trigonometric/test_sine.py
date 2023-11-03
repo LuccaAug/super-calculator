@@ -9,7 +9,19 @@ class SineTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.sine = Sine()
 
-    def test_normal_value(self):
+    def test_0_degree(self):
+        self.sine.angle_degrees = 0
+
+        sine = self.sine.do_math()
+        self.assertEqual(sine, 0)
+
+    def test_45_degree(self):
+        self.sine.angle_degrees = 45
+
+        sine = self.sine.do_math()
+        self.assertEqual(sine, 0.71)
+
+    def test_90_degree(self):
         self.sine.angle_degrees = 90
 
         sine = self.sine.do_math()

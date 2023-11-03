@@ -10,11 +10,18 @@ class SpeedTestCase(unittest.TestCase):
         self.speed = Speed()
 
     def test_normal_value(self):
-        self.speed.time = 1.3
+        self.speed.time = 13
         self.speed.distance = 130
 
         speed = self.speed.do_math()
-        self.assertEqual(speed, 100)
+        self.assertEqual(speed, 10)
+
+    def test_zero_mass(self):
+        self.speed.time = 13
+        self.speed.distance = 0
+
+        speed = self.speed.do_math()
+        self.assertEqual(speed, 0)
 
     def test_time_zero(self):
         self.speed.time = 0

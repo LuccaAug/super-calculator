@@ -9,7 +9,7 @@ class ReLUTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.relu = ReLU()
 
-    def test_zero(self):
+    def test_zero_value(self):
         self.relu.input = 0
         value = self.relu.do_math()
         self.assertEqual(value, 0)
