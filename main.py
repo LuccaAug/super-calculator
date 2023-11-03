@@ -13,14 +13,23 @@ options: dict = {
 }
 
 
+def show_menu() -> None:
+    print("Choose the area: ")
+    for letter, name in options:
+        print("\t %s - %s" % (letter, name))
+
+
+def instantiate_calculator_area(calculator_area: BaseArea) -> None:
+    calculator_area.menu()
+    calculator_area.instantiate_calculator()
+
+
 def main():
     in_loop: bool = True
     while in_loop:
         calculator_area: BaseArea | None = None
 
-        print("Choose the area: ")
-        for letter, name in options:
-            print("\t %s - %s" % (letter, name))
+        show_menu()
 
         calculator_type: str = input()
         calculator_type = calculator_type.upper()
@@ -44,8 +53,7 @@ def main():
             print("Nothing was found, please try again!")
             continue
 
-        calculator_area.menu()
-        calculator_area.instantiate_calculator()
+        instantiate_calculator_area(calculator_area)
 
     print("Thanks for using the super-calculator! :D")
 
