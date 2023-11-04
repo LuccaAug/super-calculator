@@ -1,10 +1,10 @@
-from abc import ABC, abstractmethod
+from abc import abstractmethod
 
 from base.base_calculator import BaseCalculator
 from base.base_option import BaseOption
 
 
-class BaseArea(ABC):
+class BaseArea:
     options: list[BaseOption]
     chose_calculator: BaseCalculator
 

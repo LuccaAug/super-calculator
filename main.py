@@ -24,10 +24,6 @@ class MainMenu:
     calculator_area: BaseArea | None = None
     in_loop: bool = True
 
-    def __init__(self) -> None:
-        self.menu_in_loop()
-        self.end()
-
     def reset_variables(self) -> None:
         self.calculator_area = None
 
@@ -78,4 +74,7 @@ class MainMenu:
 
 
 if __name__ == "__main__":
-    MainMenu()
+    menu = MainMenu()
+
+    menu.menu_in_loop()
+    menu.end()
