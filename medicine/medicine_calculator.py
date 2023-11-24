@@ -10,8 +10,8 @@ from medicine.bmr import BMR
 class MedicineCalculator(BaseArea, ABC):
     def __init__(self):
         self.options = [
-            BaseOption("BMI", BMI),
-            BaseOption("BMR", BMR),
+            BaseOption("BMI", BMI()),
+            BaseOption("BMR", BMR()),
         ]
         logging.info("Calculator for medicine formulas instantiated.")
 

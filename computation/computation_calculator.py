@@ -11,9 +11,9 @@ from computation.tanh import TanH
 class ComputationCalculator(BaseArea, ABC):
     def __init__(self):
         self.options = [
-            BaseOption("ReLU", ReLU),
-            BaseOption("Sigmoid", Sigmoid),
-            BaseOption("TanH", TanH),
+            BaseOption("ReLU", ReLU()),
+            BaseOption("Sigmoid", Sigmoid()),
+            BaseOption("TanH", TanH()),
         ]
         logging.info("Calculator for computation formulas instantiated.")
 

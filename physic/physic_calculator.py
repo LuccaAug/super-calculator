@@ -14,12 +14,12 @@ from physic.acceleration import Acceleration
 class PhysicCalculator(BaseArea, ABC):
     def __init__(self):
         self.options = [
-            BaseOption("Work", Work),
-            BaseOption("Speed", Speed),
-            BaseOption("Kinetic", Kinetic),
-            BaseOption("Potential", Potential),
-            BaseOption("Gravitation", Gravitation),
-            BaseOption("Acceleration", Acceleration),
+            BaseOption("Work", Work()),
+            BaseOption("Speed", Speed()),
+            BaseOption("Kinetic", Kinetic()),
+            BaseOption("Potential", Potential()),
+            BaseOption("Gravitation", Gravitation()),
+            BaseOption("Acceleration", Acceleration()),
         ]
         logging.info("Calculator for physics formulas instantiated.")
 

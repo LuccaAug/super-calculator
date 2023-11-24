@@ -14,12 +14,12 @@ from trigonometric.tangent import Tangent
 class TrigonometricCalculator(BaseArea, ABC):
     def __init__(self):
         self.options = [
-            BaseOption("Cosecant", Cosecant),
-            BaseOption("Cosine", Cosine),
-            BaseOption("Cotangent", Cotangent),
-            BaseOption("Secant", Secant),
-            BaseOption("Sine", Sine),
-            BaseOption("Tangent", Tangent),
+            BaseOption("Cosecant", Cosecant()),
+            BaseOption("Cosine", Cosine()),
+            BaseOption("Cotangent", Cotangent()),
+            BaseOption("Secant", Secant()),
+            BaseOption("Sine", Sine()),
+            BaseOption("Tangent", Tangent()),
         ]
         logging.info("Calculator for trigonometric formulas instantiated.")
 
