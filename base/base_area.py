@@ -21,5 +21,6 @@ class BaseArea:
 
     def instantiate_calculator(self) -> None:
         self.chose_calculator.ask_requirements()
-        self.chose_calculator.do_math()
-
+        result = self.chose_calculator.do_math()
+        print(result)
+        print()
