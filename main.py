@@ -41,6 +41,8 @@ class MainMenu:
             calculator_type = calculator_type.upper()
 
             self.define_area(calculator_type)
+            if self.in_loop == False:
+                break
 
             if self.calculator_area is None:
                 print("Nothing was found, please try again!")
