@@ -29,7 +29,7 @@ class MainMenu:
 
     def show_menu(self) -> None:
         print("Choose the area: ")
-        for letter, name in self.options:
+        for letter, name in self.options.items():
             print("\t %s - %s" % (letter, name))
 
     def menu_in_loop(self) -> None:
