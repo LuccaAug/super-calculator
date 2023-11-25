@@ -24,4 +24,5 @@ The GitHub Actions was set to create a specific environment, to avoid version pr
 2. Install the packages of _requirements.txt_ (**coverage** and **lizard**)
 3. Runs the tests with **coverage**
 4. Shows the **coverage** report
-5. Shows the **lizard** report for the files excluding the tests
+5. Uploads the coverage report to **Codecov**
+6. Shows the **lizard** report for the files excluding the tests
