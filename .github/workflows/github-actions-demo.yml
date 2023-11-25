@@ -2,7 +2,7 @@ name: Super Calculator Actions
 run-name: Super Calculator Actions
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Ubuntu:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +19,58 @@ jobs:
       - name: Show the coverage report
         run: |
           coverage report -m
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Show the lizard report excluding tests
+        run: |
+          lizard -x"./tests/*"
+  MacOs:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.7
+      - name: Install python dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Run the tests
+        run: |
+          coverage run -m unittest discover
+      - name: Show the coverage report
+        run: |
+          coverage report -m
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: Show the lizard report excluding tests
+        run: |
+          lizard -x"./tests/*"
+  Windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.10.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.7
+      - name: Install python dependencies
+        run: |
+          pip install -r requirements.txt
+      - name: Run the tests
+        run: |
+          coverage run -m unittest discover
+      - name: Show the coverage report
+        run: |
+          coverage report -m
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Show the lizard report excluding tests
         run: |
           lizard -x"./tests/*"
