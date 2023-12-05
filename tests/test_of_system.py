@@ -5,6 +5,8 @@ import platform
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
+        python_script_path = "main.py"
+
         if platform.system() == "Windows":
             self.cmd_process = subprocess.Popen(
                 ["cmd"],
@@ -13,6 +15,8 @@ class MyTestCase(unittest.TestCase):
                 stderr=subprocess.PIPE,
                 text=True
             )
+            self.cmd_process.stdin.write(f"python {python_script_path}\n")
+
         else:
             self.cmd_process = subprocess.Popen(
                 ["bash"],
@@ -21,6 +25,9 @@ class MyTestCase(unittest.TestCase):
                 stderr=subprocess.PIPE,
                 text=True
             )
+            self.cmd_process.stdin.write(f"python3 {python_script_path}\n")
+
+        self.cmd_process.stdin.flush()
 
     def run_cmd_commands(self, *commands):
         # Run the commands on terminal
