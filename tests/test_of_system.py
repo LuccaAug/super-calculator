@@ -12,7 +12,7 @@ class MyTestCase(unittest.TestCase):
             text=True
         )
 
-        self.cmd_process.stdin.write(f"python ../main.py\n")
+        self.cmd_process.stdin.write(f"python main.py\n")
         self.cmd_process.stdin.flush()
 
     def run_cmd_commands(self, *commands):
