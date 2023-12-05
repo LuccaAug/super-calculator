@@ -15,7 +15,7 @@ class MyTestCase(unittest.TestCase):
             )
         else:
             self.cmd_process = subprocess.Popen(
-                [ ],
+                ["bash"],
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
