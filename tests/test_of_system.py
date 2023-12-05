@@ -38,10 +38,14 @@ class MyTestCase(unittest.TestCase):
         # Get the entire output of the terminal
         output, error = self.cmd_process.communicate()
 
-        # Extract the answer of the calculator inside the output
+        # Extract the answer of the calculator inside the output depending on the system
         outputs = output.split('\n')
-        str_value = outputs[-10].split()[-1]
+        if platform.system() == "Windows":
+            line_with_answer = outputs[-10]
+        else:
+            line_with_answer = outputs[-9]
 
+        str_value = line_with_answer.split()[-1]
         return float(str_value)
 
     def test_computation(self):
@@ -74,8 +78,11 @@ class MyTestCase(unittest.TestCase):
         # Get the entire output of the terminal
         output, error = self.cmd_process.communicate()
 
-        # Extract the last line
-        last_line = output.split('\n')[-3]
+        # Extract the last line based on the system
+        if platform.system() == "Windows":
+            last_line = output.split('\n')[-3]
+        else:
+            last_line = output.split('\n')[-2]
 
         self.assertEqual(last_line, 'Thanks for using the super-calculator! :D')
 
