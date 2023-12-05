@@ -1,19 +1,26 @@
 import unittest
 import subprocess
+import platform
 
 
 class MyTestCase(unittest.TestCase):
     def setUp(self) -> None:
-        self.cmd_process = subprocess.Popen(
-            ["cmd"],
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
-
-        self.cmd_process.stdin.write(f"python main.py\n")
-        self.cmd_process.stdin.flush()
+        if platform.system() == "Windows":
+            self.cmd_process = subprocess.Popen(
+                ["cmd"],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
+        else:
+            self.cmd_process = subprocess.Popen(
+                [""],
+                stdin=subprocess.PIPE,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
 
     def run_cmd_commands(self, *commands):
         # Run the commands on terminal
